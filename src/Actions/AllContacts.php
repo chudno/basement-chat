@@ -8,8 +8,10 @@ use BasementChat\Basement\Contracts\AllContacts as AllContactsContract;
 use BasementChat\Basement\Data\ContactData;
 use BasementChat\Basement\Data\PrivateMessageData;
 use BasementChat\Basement\Facades\Basement;
+use BasementChat\Basement\Models\PrivateMessage;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class AllContacts implements AllContactsContract
 {
@@ -22,8 +24,26 @@ class AllContacts implements AllContactsContract
      */
     public function all(Authenticatable $user): Collection
     {
+        $received = PrivateMessage::query()
+            ->where('receiver_id', $user->id)->get()
+            ?->pluck('sender_id')->toArray();
+
+        $sended = PrivateMessage::query()
+            ->where('sender_id', $user->id)->get()
+            ?->pluck('receiver_id')->toArray();
+
+        $received = $received ?? [];
+        $sended = $sended ?? [];
+
+        foreach ($received as $id) {
+            $sended[] = $id;
+        }
+
+        $sended = array_unique($sended);
+
         /** @var \Illuminate\Database\Eloquent\Collection<int,Authenticatable&\BasementChat\Basement\Contracts\User> $contacts */
         $contacts = Basement::newUserModel()
+            ->whereIn('id', $sended)
             ->addSelectLastPrivateMessageId($user)
             ->addSelectUnreadMessages($user)
             ->get();

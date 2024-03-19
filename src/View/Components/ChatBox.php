@@ -6,7 +6,7 @@ namespace BasementChat\Basement\View\Components;
 
 use BasementChat\Basement\Facades\Basement;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
+use BasementChat\Basement\Support\Auth;
 use Illuminate\Validation\UnauthorizedException;
 use Illuminate\View\Component;
 

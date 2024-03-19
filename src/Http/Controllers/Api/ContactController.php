@@ -8,7 +8,7 @@ use BasementChat\Basement\Contracts\AllContacts;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
+use BasementChat\Basement\Support\Auth;
 
 class ContactController extends Controller
 {

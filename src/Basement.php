@@ -14,6 +14,9 @@ use BasementChat\Basement\Enums\AvatarStyle;
 use BasementChat\Basement\Enums\ChatBoxPosition;
 use BasementChat\Basement\Models\PrivateMessage;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use BasementChat\Basement\Support\Auth;
+use App\Models\Customer;
+use App\Models\Freelancer;
 
 class Basement implements BasementContract
 {

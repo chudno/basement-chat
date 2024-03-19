@@ -19,6 +19,8 @@ class ContactChannel
      */
     public function join(Authenticatable $user, int $id): ?array
     {
+        $user = $user->chatUser();
+
         if ($user->id !== $id) {
             return null;
         }

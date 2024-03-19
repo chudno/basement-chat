@@ -19,6 +19,8 @@ class ContactsChannel
      */
     public function join(Authenticatable $user): array
     {
+        $user = $user->chatUser();
+
         /** @var \Illuminate\Foundation\Auth\User&\BasementChat\Basement\Contracts\User $contact */
         $contact = Basement::newUserModel()->findOrFail($user->id);
         $contact->append('avatar');

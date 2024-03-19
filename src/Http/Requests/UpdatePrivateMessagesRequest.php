@@ -7,7 +7,7 @@ namespace BasementChat\Basement\Http\Requests;
 use BasementChat\Basement\Data\PrivateMessageData;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
+use BasementChat\Basement\Support\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 

@@ -8,7 +8,7 @@ use BasementChat\Basement\Events\CurrentlyTyping;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
+use BasementChat\Basement\Support\Auth;
 
 class CurrentlyTypingController extends Controller
 {

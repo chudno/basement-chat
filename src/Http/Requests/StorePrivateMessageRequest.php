@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace BasementChat\Basement\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
+use BasementChat\Basement\Support\Auth;
 
 class StorePrivateMessageRequest extends FormRequest
 {
